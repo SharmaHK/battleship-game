@@ -4,7 +4,11 @@ from random import randint
 ai_board = []
 player_board = []
 
-gamelimit = int (sys.argv[1])
+#Try using input given by user. If user input produces error, default to 5 turns
+try:
+    gamelimit = int (sys.argv[1])
+except:
+    gamelimit = 5
 
 if (gamelimit < 0 or gamelimit > 25):
     gamelimit = 10
@@ -81,7 +85,7 @@ for turn in range(gamelimit):
             print("Game Over!")
             break
         player_board[x - 1][y - 1] = "X"
-    #Print turn number here here
+    #Print turn number 
     print ("Turn %s" %(turn +1))
 
     print_ai_board(ai_board)
