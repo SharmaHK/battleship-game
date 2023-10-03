@@ -12,6 +12,7 @@ python3 battleship.py 20
 If the turn amount is left blank, the game defaults to 5.
 
 to do: 
+
   -error handling for player ship placement
  
   -customizable grid size
