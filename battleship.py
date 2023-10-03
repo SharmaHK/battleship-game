@@ -10,9 +10,11 @@ try:
 except:
     gamelimit = 5
 
+#If user input is less than 0 or more than 25, set it to 10
 if (gamelimit < 0 or gamelimit > 25):
     gamelimit = 10
 
+#Create game board
 for x in range(5):
     ai_board.append(["~"] * 5)
     player_board.append(["~"] * 5)
@@ -42,6 +44,7 @@ def player_col(player_board):
     y = input("Enter the column your ship is located on: ")
     return (int(y) - 1)
 
+#place AI ship on board
 ai_ship_row = random_row(ai_board)
 ai_ship_col = random_col(ai_board)
 ai_attack_row = 0
@@ -57,6 +60,7 @@ print()
 print_ai_board(ai_board)
 print_player_board(player_board)
 
+#start game
 for turn in range(gamelimit):
     guess_row = int(input("Guess Row:")) - 1
     guess_col = int(input("Guess Col:")) - 1
