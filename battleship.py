@@ -14,10 +14,15 @@ except:
 if (gamelimit < 0 or gamelimit > 25):
     gamelimit = 10
 
+#If user input is less than 3, then default board size to 5
+board_size = int(sys.argv[2])
+if (board_size < 3):
+    board_size = 5
+
 #Create game board
-for x in range(5):
-    ai_board.append(["~"] * 5)
-    player_board.append(["~"] * 5)
+for x in range(board_size):
+    ai_board.append(["~"] * board_size)
+    player_board.append(["~"] * board_size)
 
 def print_ai_board(ai_board):
     print("OPFOR Board")
@@ -85,7 +90,7 @@ for turn in range(gamelimit):
         x = random_col(player_board)
         print("%d %d" % (x,y))
         if (x == player_ship_col and y == player_ship_row):
-            print("Curses! You have been struck by the OPFOR battleship! Pull back!")
+            print("Curses! You have been struck by OPFOR! Pull back!")
             print("Game Over!")
             break
         player_board[x - 1][y - 1] = "X"
